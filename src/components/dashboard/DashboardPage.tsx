@@ -88,7 +88,7 @@ const DashboardPage = () => {
           <p className="text-gray-600 mt-2">Welcome back! Here's what's happening with your portfolio.</p>
         </div>
         <div className="flex items-center gap-3">
-          <button className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center gap-2">
+          <button className="px-4 py-2 bg-linear-to-r from-blue-500 to-purple-500 text-white rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center gap-2">
             <Download size={18} />
             Export Report
           </button>
@@ -153,7 +153,7 @@ const DashboardPage = () => {
                     <span className="text-sm font-medium text-gray-900">{project.completion}%</span>
                     <div className="w-24 h-2 bg-gray-100 rounded-full overflow-hidden">
                       <div 
-                        className="h-full bg-gradient-to-r from-blue-500 to-purple-500"
+                        className="h-full bg-linear-to-r from-blue-500 to-purple-500"
                         style={{ width: `${project.completion}%` }}
                       ></div>
                     </div>
@@ -178,13 +178,13 @@ const DashboardPage = () => {
           </div>
           
           <div className="space-y-6">
-            <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl">
+            <div className="p-4 bg-linear-to-r from-blue-50 to-purple-50 rounded-xl">
               <div className="flex items-center justify-between mb-3">
                 <span className="font-medium text-gray-900">Monthly Visitors Goal</span>
                 <span className="text-sm text-gray-600">15,000 target</span>
               </div>
               <div className="w-full h-3 bg-white rounded-full overflow-hidden">
-                <div className="h-full bg-gradient-to-r from-blue-500 to-purple-500" style={{ width: '83%' }}></div>
+                <div className="h-full bg-linear-to-r from-blue-500 to-purple-500" style={{ width: '83%' }}></div>
               </div>
               <div className="flex justify-between mt-2 text-sm text-gray-600">
                 <span>12,458 achieved</span>

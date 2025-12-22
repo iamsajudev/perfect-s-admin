@@ -70,7 +70,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-blue-50 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-gray-50 via-white to-blue-50 p-4">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
@@ -79,15 +79,15 @@ export default function LoginPage() {
 
       <div className="relative w-full max-w-md">
         {/* Decorative Elements */}
-        <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl rotate-12"></div>
-        <div className="absolute -bottom-6 -left-6 w-10 h-10 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full"></div>
+        <div className="absolute -top-6 -right-6 w-12 h-12 bg-linear-to-br from-blue-500 to-purple-500 rounded-xl rotate-12"></div>
+        <div className="absolute -bottom-6 -left-6 w-10 h-10 bg-linear-to-br from-orange-400 to-pink-500 rounded-full"></div>
 
         <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
           {/* Header */}
           <div className="pt-8 px-8 text-center">
             <div className="flex justify-center mb-4">
               <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <div className="w-16 h-16 bg-linear-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
                   <Shield className="text-white" size={32} />
                 </div>
                 <div className="absolute -top-2 -right-2">
@@ -95,7 +95,7 @@ export default function LoginPage() {
                 </div>
               </div>
             </div>
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+            <h1 className="text-3xl font-bold bg-linear-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
               Admin Portal
             </h1>
             <p className="text-gray-600 mt-2">
@@ -219,7 +219,7 @@ export default function LoginPage() {
             <div className="space-y-3">
               <Button
                 type="submit"
-                className="w-full cursor-pointer py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="w-full cursor-pointer py-3 bg-linear-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 disabled={isLoading || isDemoLoading || !email || !password}
               >
                 {isLoading ? (
@@ -252,7 +252,7 @@ export default function LoginPage() {
           </form>
 
           {/* Footer */}
-          <div className="px-8 py-6 bg-gradient-to-r from-gray-50 to-gray-100/50 border-t border-gray-200">
+          <div className="px-8 py-6 bg-linear-to-r from-gray-50 to-gray-100/50 border-t border-gray-200">
             <div className="flex items-center justify-center gap-4 text-sm text-gray-600">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>

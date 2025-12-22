@@ -3,10 +3,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   Home,
-  FolderKanban,
+  House,
+  Folder,
   FileText,
   Zap,
-  Contact,
+  User,
+  MessageCircle,
   Settings,
   LogOut,
   ChevronLeft,
@@ -16,13 +18,15 @@ import { useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 
 const navItems = [
-  { name: "Dashboard", href: "/dashboard", icon: Home },
-  { name: "Projects", href: "/projects", icon: FolderKanban },
-  { name: "Blogs", href: "/blogs", icon: FileText },
-  { name: "Skills", href: "/skills", icon: Zap },
-  { name: "About", href: "/about", icon: Contact },
-  { name: "Contacts", href: "/contacts", icon: Contact },
-  { name: "Settings", href: "/settings", icon: Settings },
+  { name: "Dashboard", href: "/dashboard", icon: Home },          // main dashboard
+  { name: "Home", href: "/home", icon: House },               // home/projects
+  { name: "Projects", href: "/projects", icon: Folder },          // folder/project collection
+  { name: "Blogs", href: "/blogs", icon: FileText },              // file/blog post
+  { name: "Skills", href: "/skills", icon: Zap },                 // skills/abilities
+  { name: "About", href: "/about", icon: User },                  // user info / about me
+  { name: "Experience", href: "/experience", icon: FileText },    // experience entries
+  { name: "Contacts", href: "/contacts", icon: MessageCircle },   // contact/messages
+  { name: "Settings", href: "/settings", icon: Settings },        // settings
 ];
 
 export default function Sidebar() {

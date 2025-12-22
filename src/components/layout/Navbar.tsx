@@ -33,7 +33,12 @@ export default function Navbar() {
   const notifications = [
     { id: 1, text: "New project submission", time: "2 min ago", read: false },
     { id: 2, text: "Contact form completed", time: "1 hour ago", read: true },
-    { id: 3, text: "System backup successful", time: "3 hours ago", read: true },
+    {
+      id: 3,
+      text: "System backup successful",
+      time: "3 hours ago",
+      read: true,
+    },
     { id: 4, text: "New user registered", time: "5 hours ago", read: true },
   ];
 
@@ -42,11 +47,11 @@ export default function Navbar() {
   const handleLogout = () => {
     // Call your existing logout logic
     logout();
-    
+
     // Remove the auth token cookie (already done in logout)
     // Close any open menus or modals
     setOpen(false);
-    
+
     // Note: The logout function already redirects to /login
   };
 
@@ -74,10 +79,10 @@ export default function Navbar() {
       {/* Left - Title & Search */}
       <div className="flex items-center gap-6">
         <div className="relative">
-          <h1 className="text-lg font-semibold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+          <h1 className="text-lg font-semibold bg-linear-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
             Dashboard
           </h1>
-          <div className="absolute -bottom-1 left-0 w-12 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
+          <div className="absolute -bottom-1 left-0 w-12 h-0.5 bg-linear-to-r from-blue-500 to-purple-500 rounded-full" />
         </div>
 
         {/* Search Bar */}
@@ -90,7 +95,7 @@ export default function Navbar() {
             <input
               type="text"
               placeholder="Search..."
-              className="pl-10 pr-4 py-2 w-64 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 transition-all hover:border-gray-300"
+              className="pl-10 pr-4 py-2 text-black w-64 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 transition-all hover:border-gray-300"
             />
             <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
               <kbd className="px-1.5 py-0.5 text-xs border border-gray-300 rounded bg-white text-gray-500">
@@ -134,18 +139,18 @@ export default function Navbar() {
         {/* Help */}
         <button className="p-2 rounded-lg hover:bg-gray-100 transition-colors relative group">
           <HelpCircle size={20} className="text-gray-600" />
-          <div className="absolute bottom-full right-0 mb-2 px-3 py-1.5 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">
+          <div className="absolute top-10 right-0 mb-2 px-3 py-1.5 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">
             Help & Support
-            <div className="absolute top-full right-2 -mt-1 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gray-900"></div>
+            <div className="absolute bottom-0 right-2 -mt-1 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gray-900"></div>
           </div>
         </button>
 
         {/* Settings */}
         <button className="p-2 rounded-lg hover:bg-gray-100 transition-colors relative group">
           <Settings size={20} className="text-gray-600" />
-          <div className="absolute bottom-full right-0 mb-2 px-3 py-1.5 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">
+          <div className="absolute top-10 right-0 mb-2 px-3 py-1.5 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">
             Settings
-            <div className="absolute top-full right-2 -mt-1 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gray-900"></div>
+            <div className="absolute bottom-0 right-2 -mt-1 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gray-900"></div>
           </div>
         </button>
 
@@ -165,9 +170,9 @@ export default function Navbar() {
                 <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full animate-ping"></span>
               </>
             )}
-            <div className="absolute bottom-full right-0 mb-2 px-3 py-1.5 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">
+            <div className="absolute top-10 right-0 mb-2 px-3 py-1.5 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">
               Notifications
-              <div className="absolute top-full right-2 -mt-1 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gray-900"></div>
+              <div className="absolute bottom-0 right-2 -mt-1 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gray-900"></div>
             </div>
           </button>
 
@@ -177,7 +182,9 @@ export default function Navbar() {
               <div className="p-4 border-b border-gray-100">
                 <div className="flex justify-between items-center">
                   <div>
-                    <h3 className="font-semibold text-gray-800">Notifications</h3>
+                    <h3 className="font-semibold text-gray-800">
+                      Notifications
+                    </h3>
                     <p className="text-xs text-gray-500 mt-0.5">
                       {unreadCount} unread
                     </p>
@@ -202,7 +209,7 @@ export default function Navbar() {
                   >
                     <div className="flex items-start gap-3">
                       <div
-                        className={`mt-1 flex-shrink-0 w-2 h-2 rounded-full ${
+                        className={`mt-1 shrink-0 w-2 h-2 rounded-full ${
                           !notification.read ? "bg-blue-500" : "bg-gray-300"
                         }`}
                       />
@@ -215,7 +222,7 @@ export default function Navbar() {
                         </p>
                       </div>
                       {!notification.read && (
-                        <div className="flex-shrink-0">
+                        <div className="shrink-0">
                           <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                         </div>
                       )}
@@ -239,7 +246,7 @@ export default function Navbar() {
             className="flex items-center gap-3 p-1.5 rounded-xl hover:bg-gray-100 transition-colors group border border-transparent hover:border-gray-200"
           >
             <div className="relative">
-              <div className="w-9 h-9 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-sm">
+              <div className="w-9 h-9 bg-linear-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-sm">
                 <User size={18} className="text-white" />
               </div>
               <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
@@ -260,7 +267,7 @@ export default function Navbar() {
             <div className="absolute right-0 mt-2 w-56 bg-white border border-gray-200 rounded-xl shadow-xl overflow-hidden z-50 animate-in fade-in slide-in-from-top-5 duration-200">
               <div className="p-4 border-b border-gray-100">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-sm">
+                  <div className="w-11 h-11 bg-linear-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-sm">
                     <User size={20} className="text-white" />
                   </div>
                   <div>
