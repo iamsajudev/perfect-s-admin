@@ -1,11 +1,8 @@
-import React from 'react';
+import HomePageForm from "@/components/HomePageForm/HomePageForm";
+
 
 const page = () => {
-    return (
-        <div>
-            Home Page
-        </div>
-    );
+  return <HomePageForm />;
 };
 
 export default page;
