@@ -10,9 +10,10 @@ import {
   Settings,
   LogOut,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
 } from "lucide-react";
 import { useState } from "react";
+import { useAuth } from "@/hooks/useAuth";
 
 const navItems = [
   { name: "Dashboard", href: "/dashboard", icon: Home },
@@ -26,13 +27,19 @@ const navItems = [
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const { logout } = useAuth();
   const [collapsed, setCollapsed] = useState(false);
   const [activeHover, setActiveHover] = useState<string | null>(null);
+
+  const handleLogout = () => {
+    // Call your existing logout logic
+    logout();
+  };
 
   return (
     <aside
       className={`
-        bg-gradient-to-b from-gray-900 to-gray-950 
+        bg-linear-to-b from-gray-900 to-gray-950 
         text-white p-6 
         transition-all duration-300 ease-in-out
         border-r border-gray-800
@@ -46,7 +53,7 @@ export default function Sidebar() {
       <div className="flex items-center justify-between mb-8">
         {!collapsed && (
           <div>
-            <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <h2 className="text-2xl font-bold bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Mr. Perfect
             </h2>
             <p className="text-gray-400 text-sm mt-1">Portfolio</p>
@@ -80,9 +87,10 @@ export default function Sidebar() {
               className={`
                 flex items-center gap-3 px-4 py-3 rounded-xl
                 transition-all duration-200 group
-                ${isActive
-                  ? "bg-gradient-to-r from-blue-500/20 to-purple-500/20 border-l-4 border-blue-400"
-                  : "hover:bg-gray-800/50"
+                ${
+                  isActive
+                    ? "bg-linear-to-r from-blue-500/20 to-purple-500/20 border-l-4 border-blue-400"
+                    : "hover:bg-gray-800/50"
                 }
                 ${collapsed ? "justify-center px-2" : ""}
                 ${activeHover === item.name ? "translate-x-1" : ""}
@@ -92,9 +100,10 @@ export default function Sidebar() {
                 <Icon
                   size={22}
                   className={`
-                    ${isActive
-                      ? "text-blue-400"
-                      : "text-gray-400 group-hover:text-white"
+                    ${
+                      isActive
+                        ? "text-blue-400"
+                        : "text-gray-400 group-hover:text-white"
                     }
                     transition-colors
                   `}
@@ -103,13 +112,19 @@ export default function Sidebar() {
                   <div className="absolute inset-0 bg-blue-400/20 blur-md" />
                 )}
               </div>
-              
+
               {!collapsed && (
                 <>
-                  <span className={`
+                  <span
+                    className={`
                     font-medium transition-colors
-                    ${isActive ? "text-white" : "text-gray-300 group-hover:text-white"}
-                  `}>
+                    ${
+                      isActive
+                        ? "text-white"
+                        : "text-gray-300 group-hover:text-white"
+                    }
+                  `}
+                  >
                     {item.name}
                   </span>
                   {isActive && (
@@ -117,7 +132,7 @@ export default function Sidebar() {
                   )}
                 </>
               )}
-              
+
               {!collapsed && activeHover === item.name && (
                 <div className="absolute left-full ml-4 px-3 py-1 bg-gray-900 text-white text-sm rounded-lg border border-gray-700 shadow-lg">
                   {item.name}
@@ -129,13 +144,15 @@ export default function Sidebar() {
       </nav>
 
       {/* User Profile & Logout */}
-      <div className={`
+      <div
+        className={`
         pt-6 mt-6 border-t border-gray-800
         ${collapsed ? "px-2" : "px-4"}
-      `}>
+      `}
+      >
         {!collapsed && (
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center font-bold">
+            <div className="w-10 h-10 rounded-full bg-linear-to-r from-blue-500 to-purple-500 flex items-center justify-center font-bold">
               AM
             </div>
             <div>
@@ -144,22 +161,21 @@ export default function Sidebar() {
             </div>
           </div>
         )}
-        
+
         <button
           className={`
-            flex items-center gap-3 w-full px-4 py-3 rounded-xl
+            flex items-center gap-3 w-full px-4 py-3 rounded-xl cursor-pointer
             bg-gray-800/50 hover:bg-red-500/10 
             text-gray-300 hover:text-red-400
             transition-all duration-200 group
             ${collapsed ? "justify-center px-2" : ""}
           `}
+          onClick={handleLogout}
         >
           <LogOut size={22} />
-          {!collapsed && (
-            <span className="font-medium">Logout</span>
-          )}
+          {!collapsed && <span className="font-medium">Logout</span>}
         </button>
-        
+
         {!collapsed && (
           <div className="mt-4 text-center">
             <p className="text-gray-500 text-xs">v2.5.1 • Last login: Today</p>

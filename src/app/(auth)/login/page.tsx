@@ -44,6 +44,13 @@ export default function LoginPage() {
     try {
       // Check credentials
       if (email === DEFAULT_EMAIL && password === DEFAULT_PASSWORD) {
+        // Generate a simple auth token (demo purposes)
+        const authToken =
+          Math.random().toString(36).substring(2) + Date.now().toString(36);
+
+        // Save token in cookie (valid for 1 day)
+        document.cookie = `token=${authToken}; path=/; max-age=${60 * 60 * 24}`;
+
         setSuccess("Login successful! Redirecting...");
         setTimeout(() => {
           router.push("/dashboard");
@@ -99,7 +106,10 @@ export default function LoginPage() {
           {/* Success Message */}
           {success && (
             <div className="mx-8 mt-6 p-4 bg-green-50 border border-green-200 rounded-xl flex items-start gap-3 animate-in fade-in">
-              <CheckCircle className="text-green-500 flex-shrink-0 mt-0.5" size={20} />
+              <CheckCircle
+                className="text-green-500 flex-shrink-0 mt-0.5"
+                size={20}
+              />
               <span className="text-green-700 text-sm">{success}</span>
             </div>
           )}
