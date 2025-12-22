@@ -451,9 +451,9 @@ const HomePageForm = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
-          <Loader2 className="w-12 h-12 animate-spin text-blue-600 mx-auto mb-4" />
+          <Loader2 className="w-12 h-12 mx-auto mb-4 text-blue-600 animate-spin" />
           <p className="text-gray-600">Loading home data from API...</p>
         </div>
       </div>
@@ -464,13 +464,13 @@ const HomePageForm = () => {
   const data = formData || defaultFormData;
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="container p-6 mx-auto">
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">Home Page Settings</h1>
-            <p className="text-gray-600 mt-2">Manage your portfolio homepage content and appearance</p>
+            <p className="mt-2 text-gray-600">Manage your portfolio homepage content and appearance</p>
           </div>
           <div className="text-sm text-gray-500">
             API: {API_URL}/home
@@ -500,17 +500,17 @@ const HomePageForm = () => {
         </div>
       )}
 
-      <div className="flex flex-col lg:flex-row gap-6">
+      <div className="flex flex-col gap-6 lg:flex-row">
         {/* Sidebar Tabs */}
-        <div className="lg:w-64 flex-shrink-0">
-          <div className="bg-white rounded-xl border border-gray-200 p-4 sticky top-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">Sections</h2>
+        <div className="shrink-0 lg:w-64">
+          <div className="sticky p-4 bg-white border border-gray-200 rounded-xl top-6">
+            <h2 className="mb-4 text-lg font-semibold text-gray-900">Sections</h2>
             <nav className="space-y-1">
               {tabs.map(tab => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-3 w-full px-4 py-3 rounded-lg transition-colors ${
+                  className={`flex cursor-pointer hover:bg-sky-100 items-center gap-3 w-full px-4 py-3 rounded-lg transition-colors ${
                     activeTab === tab.id
                       ? 'bg-blue-50 text-blue-700 border border-blue-200'
                       : 'text-gray-700 hover:bg-gray-50'
@@ -523,7 +523,7 @@ const HomePageForm = () => {
             </nav>
             
             {/* Save Status */}
-            <div className="mt-6 pt-6 border-t border-gray-200">
+            <div className="pt-6 mt-6 border-t border-gray-200">
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-600">Unsaved changes</span>
                 <div className={`w-3 h-3 rounded-full ${hasChanges ? 'bg-yellow-400 animate-pulse' : 'bg-green-500'}`} />
@@ -558,15 +558,15 @@ const HomePageForm = () => {
           <div className="space-y-8">
             {/* Hero Section */}
             {activeTab === 'hero' && (
-              <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-6">
+              <div className="p-6 space-y-6 bg-white border border-gray-200 rounded-xl">
                 <div className="flex items-center justify-between">
                   <h3 className="text-xl font-semibold text-gray-900">Hero Section</h3>
                   <span className="text-sm text-gray-500">First impression area</span>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Hero Title</label>
+                    <label className="block mb-2 text-sm font-medium text-gray-700">Hero Title</label>
                     <input
                       type="text"
                       value={data.heroTitle}
@@ -577,7 +577,7 @@ const HomePageForm = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Hero Subtitle</label>
+                    <label className="block mb-2 text-sm font-medium text-gray-700">Hero Subtitle</label>
                     <input
                       type="text"
                       value={data.heroSubtitle}
@@ -588,7 +588,7 @@ const HomePageForm = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+                    <label className="block mb-2 text-sm font-medium text-gray-700">Your Name</label>
                     <input
                       type="text"
                       value={data.heroName}
@@ -599,7 +599,7 @@ const HomePageForm = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Your Role</label>
+                    <label className="block mb-2 text-sm font-medium text-gray-700">Your Role</label>
                     <input
                       type="text"
                       value={data.heroRole}
@@ -610,7 +610,7 @@ const HomePageForm = () => {
                   </div>
                   
                   <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Hero Description</label>
+                    <label className="block mb-2 text-sm font-medium text-gray-700">Hero Description</label>
                     <textarea
                       value={data.heroDescription}
                       onChange={(e) => handleChange('heroDescription', e.target.value)}
@@ -622,49 +622,49 @@ const HomePageForm = () => {
                 </div>
 
                 {/* Media Uploads */}
-                <div className="border-t pt-6">
-                  <h4 className="text-lg font-medium text-gray-900 mb-4">Hero Media</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="pt-6 border-t">
+                  <h4 className="mb-4 text-lg font-medium text-gray-900">Hero Media</h4>
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Hero Image URL</label>
+                      <label className="block mb-2 text-sm font-medium text-gray-700">Hero Image URL</label>
                       <div className="flex gap-2">
                         <input
                           type="text"
                           value={data.heroImage}
                           onChange={(e) => handleChange('heroImage', e.target.value)}
-                          className="flex-1 px-4 text-black py-2 border border-gray-300 rounded-lg"
+                          className="flex-1 px-4 py-2 text-black border border-gray-300 rounded-lg"
                           placeholder="https://example.com/image.jpg"
                         />
-                        <button type="button" className="px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200">
+                        <button type="button" className="px-4 py-2 text-red-400 bg-blue-100 rounded-lg hover:bg-gray-200">
                           <Upload size={20} />
                         </button>
                       </div>
                     </div>
                     
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Hero Video URL</label>
+                      <label className="block mb-2 text-sm font-medium text-gray-700">Hero Video URL</label>
                       <div className="flex gap-2">
                         <input
                           type="text"
                           value={data.heroVideo}
                           onChange={(e) => handleChange('heroVideo', e.target.value)}
-                          className="flex-1 px-4 text-black py-2 border border-gray-300 rounded-lg"
+                          className="flex-1 px-4 py-2 text-black border border-gray-300 rounded-lg"
                           placeholder="https://youtube.com/watch?v=..."
                         />
-                        <button type="button" className="px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200">
-                          <Film size={20} />
+                        <button type="button" className="px-4 py-2 text-red-400 bg-blue-100 rounded-lg hover:bg-gray-200">
+                          <Film size={20}/>
                         </button>
                       </div>
                     </div>
                     
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Background Image</label>
+                      <label className="block mb-2 text-sm font-medium text-gray-700">Background Image</label>
                       <div className="flex gap-2">
                         <input
                           type="text"
                           value={data.heroBackground}
                           onChange={(e) => handleChange('heroBackground', e.target.value)}
-                          className="flex-1 px-4 text-black py-2 border border-gray-300 rounded-lg"
+                          className="flex-1 px-4 py-2 text-black border border-gray-300 rounded-lg"
                           placeholder="Background image URL"
                         />
                         <button type="button" className="px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200">
@@ -676,52 +676,52 @@ const HomePageForm = () => {
                 </div>
 
                 {/* Call to Action Buttons */}
-                <div className="border-t pt-6">
-                  <h4 className="text-lg font-medium text-gray-900 mb-4">Call to Action Buttons</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-4 p-4 border border-gray-200 rounded-lg">
+                <div className="pt-6 border-t">
+                  <h4 className="mb-4 text-lg font-medium text-gray-900">Call to Action Buttons</h4>
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <div className="p-4 space-y-4 border border-gray-200 rounded-lg">
                       <h5 className="font-medium text-gray-900">Primary Button</h5>
                       <div>
-                        <label className="block text-sm text-gray-700 mb-1">Button Text</label>
+                        <label className="block mb-1 text-sm text-gray-700">Button Text</label>
                         <input
                           type="text"
                           value={data.primaryButton.text}
                           onChange={(e) => handleNestedChange('primaryButton', 'text', e.target.value)}
-                          className="w-full px-3 text-black py-2 border border-gray-300 rounded"
+                          className="w-full px-3 py-2 text-black border border-gray-300 rounded"
                           placeholder="View My Work"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm text-gray-700 mb-1">Button Link</label>
+                        <label className="block mb-1 text-sm text-gray-700">Button Link</label>
                         <input
                           type="text"
                           value={data.primaryButton.link}
                           onChange={(e) => handleNestedChange('primaryButton', 'link', e.target.value)}
-                          className="w-full px-3 text-black py-2 border border-gray-300 rounded"
+                          className="w-full px-3 py-2 text-black border border-gray-300 rounded"
                           placeholder="/projects"
                         />
                       </div>
                     </div>
                     
-                    <div className="space-y-4 p-4 border border-gray-200 rounded-lg">
+                    <div className="p-4 space-y-4 border border-gray-200 rounded-lg">
                       <h5 className="font-medium text-gray-900">Secondary Button</h5>
                       <div>
-                        <label className="block text-sm text-gray-700 mb-1">Button Text</label>
+                        <label className="block mb-1 text-sm text-gray-700">Button Text</label>
                         <input
                           type="text"
                           value={data.secondaryButton.text}
                           onChange={(e) => handleNestedChange('secondaryButton', 'text', e.target.value)}
-                          className="w-full px-3 text-black py-2 border border-gray-300 rounded"
+                          className="w-full px-3 py-2 text-black border border-gray-300 rounded"
                           placeholder="Contact Me"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm text-gray-700 mb-1">Button Link</label>
+                        <label className="block mb-1 text-sm text-gray-700">Button Link</label>
                         <input
                           type="text"
                           value={data.secondaryButton.link}
                           onChange={(e) => handleNestedChange('secondaryButton', 'link', e.target.value)}
-                          className="w-full px-3 text-black py-2 border border-gray-300 rounded"
+                          className="w-full px-3 py-2 text-black border border-gray-300 rounded"
                           placeholder="/contact"
                         />
                       </div>
@@ -730,13 +730,13 @@ const HomePageForm = () => {
                 </div>
 
                 {/* Stats Section */}
-                <div className="border-t pt-6">
+                <div className="pt-6 border-t">
                   <div className="flex items-center justify-between mb-4">
                     <h4 className="text-lg font-medium text-gray-900">Featured Stats</h4>
                     <button
                       type="button"
                       onClick={() => addArrayItem('stats', arrayTemplates.stats)}
-                      className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200"
+                      className="flex items-center gap-2 px-4 py-2 text-blue-700 bg-blue-100 rounded-lg hover:bg-blue-200"
                     >
                       <Plus size={16} /> Add Stat
                     </button>
@@ -745,34 +745,34 @@ const HomePageForm = () => {
                   <div className="space-y-4">
                     {data.stats.map((stat, index) => (
                       <div key={index} className="flex items-center gap-4 p-4 border border-gray-200 rounded-lg">
-                        <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="grid flex-1 grid-cols-1 gap-4 md:grid-cols-3">
                           <div>
-                            <label className="block text-sm text-gray-700 mb-1">Number</label>
+                            <label className="block mb-1 text-sm text-gray-700">Number</label>
                             <input
                               type="text"
                               value={stat.number}
                               onChange={(e) => handleArrayItemChange('stats', index, 'number', e.target.value)}
-                              className="w-full px-3 text-black py-2 border border-gray-300 rounded"
+                              className="w-full px-3 py-2 text-black border border-gray-300 rounded"
                               placeholder="50"
                             />
                           </div>
                           <div>
-                            <label className="block text-sm text-gray-700 mb-1">Label</label>
+                            <label className="block mb-1 text-sm text-gray-700">Label</label>
                             <input
                               type="text"
                               value={stat.label}
                               onChange={(e) => handleArrayItemChange('stats', index, 'label', e.target.value)}
-                              className="w-full px-3 text-black py-2 border border-gray-300 rounded"
+                              className="w-full px-3 py-2 text-black border border-gray-300 rounded"
                               placeholder="Projects"
                             />
                           </div>
                           <div>
-                            <label className="block text-sm text-gray-700 mb-1">Suffix</label>
+                            <label className="block mb-1 text-sm text-gray-700">Suffix</label>
                             <input
                               type="text"
                               value={stat.suffix}
                               onChange={(e) => handleArrayItemChange('stats', index, 'suffix', e.target.value)}
-                              className="w-full px-3 text-black py-2 border border-gray-300 rounded"
+                              className="w-full px-3 py-2 text-black border border-gray-300 rounded"
                               placeholder="+"
                             />
                           </div>
@@ -780,7 +780,7 @@ const HomePageForm = () => {
                         <button
                           type="button"
                           onClick={() => removeArrayItem('stats', index)}
-                          className="p-2 text-red-600 hover:bg-red-50 rounded"
+                          className="p-2 text-red-600 rounded hover:bg-red-50"
                         >
                           <Trash2 size={18} />
                         </button>
@@ -793,11 +793,11 @@ const HomePageForm = () => {
 
             {/* About Section */}
             {activeTab === 'about' && (
-              <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-6">
+              <div className="p-6 space-y-6 bg-white border border-gray-200 rounded-xl">
                 <h3 className="text-xl font-semibold text-gray-900">About Section</h3>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">About Title</label>
+                  <label className="block mb-2 text-sm font-medium text-gray-700">About Title</label>
                   <input
                     type="text"
                     value={data.aboutPreview.title}
@@ -808,7 +808,7 @@ const HomePageForm = () => {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">About Content</label>
+                  <label className="block mb-2 text-sm font-medium text-gray-700">About Content</label>
                   <textarea
                     value={data.aboutPreview.content}
                     onChange={(e) => handleNestedChange('aboutPreview', 'content', e.target.value)}
@@ -819,7 +819,7 @@ const HomePageForm = () => {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">About Image URL</label>
+                  <label className="block mb-2 text-sm font-medium text-gray-700">About Image URL</label>
                   <div className="flex gap-2">
                     <input
                       type="text"
@@ -838,13 +838,13 @@ const HomePageForm = () => {
 
             {/* Services Section */}
             {activeTab === 'services' && (
-              <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-6">
+              <div className="p-6 space-y-6 bg-white border border-gray-200 rounded-xl">
                 <div className="flex items-center justify-between">
                   <h3 className="text-xl font-semibold text-gray-900">Services Section</h3>
                   <button
                     type="button"
                     onClick={() => addArrayItem('services', arrayTemplates.services)}
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200"
+                    className="flex items-center gap-2 px-4 py-2 text-blue-700 bg-blue-100 rounded-lg hover:bg-blue-200"
                   >
                     <Plus size={16} /> Add Service
                   </button>
@@ -852,54 +852,54 @@ const HomePageForm = () => {
                 
                 <div className="space-y-6">
                   {data.services.map((service, index) => (
-                    <div key={index} className="border border-gray-200 rounded-lg p-6">
+                    <div key={index} className="p-6 border border-gray-200 rounded-lg">
                       <div className="flex items-center justify-between mb-4">
                         <h4 className="font-medium text-gray-900">Service #{index + 1}</h4>
                         <button
                           type="button"
                           onClick={() => removeArrayItem('services', index)}
-                          className="p-2 text-red-600 hover:bg-red-50 rounded"
+                          className="p-2 text-red-600 rounded hover:bg-red-50"
                         >
                           <Trash2 size={18} />
                         </button>
                       </div>
                       
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                      <div className="grid grid-cols-1 gap-4 mb-4 md:grid-cols-2">
                         <div>
-                          <label className="block text-sm text-gray-700 mb-1">Service Title</label>
+                          <label className="block mb-1 text-sm text-gray-700">Service Title</label>
                           <input
                             type="text"
                             value={service.title}
                             onChange={(e) => handleArrayItemChange('services', index, 'title', e.target.value)}
-                            className="w-full px-3 text-black py-2 border border-gray-300 rounded"
+                            className="w-full px-3 py-2 text-black border border-gray-300 rounded"
                             placeholder="Web Development"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm text-gray-700 mb-1">Icon (emoji or class)</label>
+                          <label className="block mb-1 text-sm text-gray-700">Icon (emoji or class)</label>
                           <input
                             type="text"
                             value={service.icon}
                             onChange={(e) => handleArrayItemChange('services', index, 'icon', e.target.value)}
-                            className="w-full px-3 text-black py-2 border border-gray-300 rounded"
+                            className="w-full px-3 py-2 text-black border border-gray-300 rounded"
                             placeholder="💻"
                           />
                         </div>
                       </div>
                       
                       <div className="mb-4">
-                        <label className="block text-sm text-gray-700 mb-1">Description</label>
+                        <label className="block mb-1 text-sm text-gray-700">Description</label>
                         <textarea
                           value={service.description}
                           onChange={(e) => handleArrayItemChange('services', index, 'description', e.target.value)}
-                          className="w-full px-3 text-black py-2 border border-gray-300 rounded"
+                          className="w-full px-3 py-2 text-black border border-gray-300 rounded"
                           rows={2}
                           placeholder="Describe your service..."
                         />
                       </div>
                       
                       <div>
-                        <label className="block text-sm text-gray-700 mb-1">Color</label>
+                        <label className="block mb-1 text-sm text-gray-700">Color</label>
                         <div className="flex items-center gap-4">
                           <input
                             type="color"
@@ -911,7 +911,7 @@ const HomePageForm = () => {
                             type="text"
                             value={service.color}
                             onChange={(e) => handleArrayItemChange('services', index, 'color', e.target.value)}
-                            className="flex-1 text-black px-3 py-2 border border-gray-300 rounded font-mono"
+                            className="flex-1 px-3 py-2 font-mono text-black border border-gray-300 rounded"
                             placeholder="#3B82F6"
                           />
                         </div>
@@ -924,20 +924,20 @@ const HomePageForm = () => {
 
             {/* Skills & Tech Section */}
             {activeTab === 'skills' && (
-              <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-6">
+              <div className="p-6 space-y-6 bg-white border border-gray-200 rounded-xl">
                 <div className="flex items-center justify-between">
                   <h3 className="text-xl font-semibold text-gray-900">Skills & Tech Stack</h3>
                   <button
                     type="button"
                     onClick={() => addArrayItem('techStack', arrayTemplates.techStack)}
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200"
+                    className="flex items-center gap-2 px-4 py-2 text-blue-700 bg-blue-100 rounded-lg hover:bg-blue-200"
                   >
                     <Plus size={16} /> Add Tech
                   </button>
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Featured Skills (comma separated)</label>
+                  <label className="block mb-2 text-sm font-medium text-gray-700">Featured Skills (comma separated)</label>
                   <input
                     type="text"
                     value={data.featuredSkills.join(', ')}
@@ -951,29 +951,29 @@ const HomePageForm = () => {
                   <h4 className="font-medium text-gray-900">Tech Stack Items</h4>
                   {data.techStack.map((tech, index) => (
                     <div key={index} className="flex items-center gap-4 p-4 border border-gray-200 rounded-lg">
-                      <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="grid flex-1 grid-cols-1 gap-4 md:grid-cols-3">
                         <div>
-                          <label className="block text-sm text-gray-700 mb-1">Technology Name</label>
+                          <label className="block mb-1 text-sm text-gray-700">Technology Name</label>
                           <input
                             type="text"
                             value={tech.name}
                             onChange={(e) => handleArrayItemChange('techStack', index, 'name', e.target.value)}
-                            className="w-full px-3 text-black py-2 border border-gray-300 rounded"
+                            className="w-full px-3 py-2 text-black border border-gray-300 rounded"
                             placeholder="React"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm text-gray-700 mb-1">Icon (emoji or class)</label>
+                          <label className="block mb-1 text-sm text-gray-700">Icon (emoji or class)</label>
                           <input
                             type="text"
                             value={tech.icon}
                             onChange={(e) => handleArrayItemChange('techStack', index, 'icon', e.target.value)}
-                            className="w-full px-3 text-black py-2 border border-gray-300 rounded"
+                            className="w-full px-3 py-2 text-black border border-gray-300 rounded"
                             placeholder="⚛️"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm text-gray-700 mb-1">Color</label>
+                          <label className="block mb-1 text-sm text-gray-700">Color</label>
                           <input
                             type="color"
                             value={tech.color}
@@ -985,7 +985,7 @@ const HomePageForm = () => {
                       <button
                         type="button"
                         onClick={() => removeArrayItem('techStack', index)}
-                        className="p-2 text-red-600 hover:bg-red-50 rounded"
+                        className="p-2 text-red-600 rounded hover:bg-red-50"
                       >
                         <Trash2 size={18} />
                       </button>
@@ -997,13 +997,13 @@ const HomePageForm = () => {
 
             {/* Social Links */}
             {activeTab === 'social' && (
-              <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-6">
+              <div className="p-6 space-y-6 bg-white border border-gray-200 rounded-xl">
                 <h3 className="text-xl font-semibold text-gray-900">Social Links</h3>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   {Object.entries(data.socialLinks).map(([platform, url]) => (
                     <div key={platform}>
-                      <label className="block text-sm font-medium text-gray-700 mb-2 capitalize">
+                      <label className="block mb-2 text-sm font-medium text-gray-700 capitalize">
                         {platform} URL
                       </label>
                       <input
@@ -1021,12 +1021,12 @@ const HomePageForm = () => {
 
             {/* Contact Section */}
             {activeTab === 'contact' && (
-              <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-6">
+              <div className="p-6 space-y-6 bg-white border border-gray-200 rounded-xl">
                 <h3 className="text-xl font-semibold text-gray-900">Contact Information</h3>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <label className="block mb-2 text-sm font-medium text-gray-700">Email</label>
                     <div className="flex items-center gap-2">
                       <Mail className="text-gray-400" size={20} />
                       <input
@@ -1040,7 +1040,7 @@ const HomePageForm = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                    <label className="block mb-2 text-sm font-medium text-gray-700">Phone</label>
                     <div className="flex items-center gap-2">
                       <Phone className="text-gray-400" size={20} />
                       <input
@@ -1054,7 +1054,7 @@ const HomePageForm = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                    <label className="block mb-2 text-sm font-medium text-gray-700">Location</label>
                     <div className="flex items-center gap-2">
                       <MapPin className="text-gray-400" size={20} />
                       <input
@@ -1068,7 +1068,7 @@ const HomePageForm = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Availability Status</label>
+                    <label className="block mb-2 text-sm font-medium text-gray-700">Availability Status</label>
                     <input
                       type="text"
                       value={data.contactInfo.availability}
@@ -1079,11 +1079,11 @@ const HomePageForm = () => {
                   </div>
                 </div>
                 
-                <div className="border-t pt-6">
-                  <h4 className="text-lg font-medium text-gray-900 mb-4">Resume/CV</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="pt-6 border-t">
+                  <h4 className="mb-4 text-lg font-medium text-gray-900">Resume/CV</h4>
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Resume URL</label>
+                      <label className="block mb-2 text-sm font-medium text-gray-700">Resume URL</label>
                       <div className="flex items-center gap-2">
                         <Download className="text-gray-400" size={20} />
                         <input
@@ -1097,7 +1097,7 @@ const HomePageForm = () => {
                     </div>
                     
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Download Button Text</label>
+                      <label className="block mb-2 text-sm font-medium text-gray-700">Download Button Text</label>
                       <input
                         type="text"
                         value={data.resume.downloadText}
@@ -1113,18 +1113,18 @@ const HomePageForm = () => {
 
             {/* Theme Section */}
             {activeTab === 'theme' && (
-              <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-6">
+              <div className="p-6 space-y-6 bg-white border border-gray-200 rounded-xl">
                 <h3 className="text-xl font-semibold text-gray-900">Theme & Styling</h3>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Primary Color</label>
+                    <label className="block mb-2 text-sm font-medium text-gray-700">Primary Color</label>
                     <div className="flex items-center gap-4">
                       <input
                         type="color"
                         value={data.theme.primaryColor}
                         onChange={(e) => handleNestedChange('theme', 'primaryColor', e.target.value)}
-                        className="w-16 h-16 cursor-pointer rounded-lg"
+                        className="w-16 h-16 rounded-lg cursor-pointer"
                       />
                       <input
                         type="text"
@@ -1137,13 +1137,13 @@ const HomePageForm = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Secondary Color</label>
+                    <label className="block mb-2 text-sm font-medium text-gray-700">Secondary Color</label>
                     <div className="flex items-center gap-4">
                       <input
                         type="color"
                         value={data.theme.secondaryColor}
                         onChange={(e) => handleNestedChange('theme', 'secondaryColor', e.target.value)}
-                        className="w-16 h-16 cursor-pointer rounded-lg"
+                        className="w-16 h-16 rounded-lg cursor-pointer"
                       />
                       <input
                         type="text"
@@ -1156,7 +1156,7 @@ const HomePageForm = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Font Family</label>
+                    <label className="block mb-2 text-sm font-medium text-gray-700">Font Family</label>
                     <select
                       value={data.theme.fontFamily}
                       onChange={(e) => handleNestedChange('theme', 'fontFamily', e.target.value)}
@@ -1171,8 +1171,8 @@ const HomePageForm = () => {
                   </div>
                 </div>
                 
-                <div className="border-t pt-6">
-                  <h4 className="text-lg font-medium text-gray-900 mb-4">Animations</h4>
+                <div className="pt-6 border-t">
+                  <h4 className="mb-4 text-lg font-medium text-gray-900">Animations</h4>
                   <div className="flex items-center gap-6">
                     <label className="flex items-center gap-2">
                       <input
@@ -1185,11 +1185,11 @@ const HomePageForm = () => {
                     </label>
                     
                     <div className="flex-1">
-                      <label className="block text-sm text-gray-700 mb-1">Animation Type</label>
+                      <label className="block mb-1 text-sm text-gray-700">Animation Type</label>
                       <select
                         value={data.animations.type}
                         onChange={(e) => handleNestedChange('animations', 'type', e.target.value)}
-                        className="w-full px-3 text-black py-2 border border-gray-300 rounded"
+                        className="w-full px-3 py-2 text-black border border-gray-300 rounded"
                         disabled={!data.animations.enabled}
                       >
                         <option value="fade">Fade</option>
@@ -1205,11 +1205,11 @@ const HomePageForm = () => {
 
             {/* SEO Section */}
             {activeTab === 'seo' && (
-              <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-6">
+              <div className="p-6 space-y-6 bg-white border border-gray-200 rounded-xl">
                 <h3 className="text-xl font-semibold text-gray-900">SEO & Meta Tags</h3>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Meta Title</label>
+                  <label className="block mb-2 text-sm font-medium text-gray-700">Meta Title</label>
                   <input
                     type="text"
                     value={data.metaTitle}
@@ -1218,11 +1218,11 @@ const HomePageForm = () => {
                     placeholder="My Portfolio - Full Stack Developer"
                     maxLength={60}
                   />
-                  <p className="text-xs text-gray-500 mt-1">{data.metaTitle.length}/60 characters</p>
+                  <p className="mt-1 text-xs text-gray-500">{data.metaTitle.length}/60 characters</p>
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Meta Description</label>
+                  <label className="block mb-2 text-sm font-medium text-gray-700">Meta Description</label>
                   <textarea
                     value={data.metaDescription}
                     onChange={(e) => handleChange('metaDescription', e.target.value)}
@@ -1231,11 +1231,11 @@ const HomePageForm = () => {
                     placeholder="Professional portfolio showcasing my work and skills"
                     maxLength={160}
                   />
-                  <p className="text-xs text-gray-500 mt-1">{data.metaDescription.length}/160 characters</p>
+                  <p className="mt-1 text-xs text-gray-500">{data.metaDescription.length}/160 characters</p>
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Keywords (comma separated)</label>
+                  <label className="block mb-2 text-sm font-medium text-gray-700">Keywords (comma separated)</label>
                   <input
                     type="text"
                     value={data.keywords.join(', ')}
@@ -1249,13 +1249,13 @@ const HomePageForm = () => {
           </div>
 
           {/* Form Actions Footer */}
-          <div className="mt-8 bg-white rounded-xl border border-gray-200 p-6">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="p-6 mt-8 bg-white border border-gray-200 rounded-xl">
+            <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
               <div className="flex items-center gap-4">
                 <button
                   type="button"
                   onClick={resetForm}
-                  className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium"
+                  className="px-6 py-3 font-medium text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50"
                   disabled={saving}
                 >
                   Reset to Original
@@ -1263,11 +1263,11 @@ const HomePageForm = () => {
                 <button
                   onClick={handleSave}
                   disabled={!hasChanges || saving}
-                  className={`px-6 py-3 rounded-lg font-medium flex items-center gap-2 ${
+                  className={`px-6 cursor-pointer py-3 rounded-lg font-medium flex items-center gap-2 ${
                     hasChanges
                       ? 'bg-blue-600 text-white hover:bg-blue-700'
                       : 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                  } ${saving ? 'opacity-50' : ''}`}
+                  } ${saving ? 'opacity-50 ' : ''}`}
                 >
                   {saving ? (
                     <>
@@ -1283,10 +1283,10 @@ const HomePageForm = () => {
                 </button>
               </div>
               
-              <div className="text-sm text-gray-600 flex items-center gap-2">
+              <div className="flex items-center gap-2 text-sm text-gray-600">
                 <div className={`w-2 h-2 rounded-full ${hasChanges ? 'bg-yellow-400 animate-pulse' : 'bg-green-500'}`} />
                 {hasChanges ? 'Unsaved changes' : 'All changes saved'}
-                <span className="text-xs text-gray-400 ml-2">
+                <span className="ml-2 text-xs text-gray-400">
                   {formData ? 'Connected to API' : 'Using default data'}
                 </span>
               </div>

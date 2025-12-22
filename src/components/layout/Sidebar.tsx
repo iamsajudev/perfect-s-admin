@@ -18,15 +18,15 @@ import { useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 
 const navItems = [
-  { name: "Dashboard", href: "/dashboard", icon: Home },          // main dashboard
-  { name: "Home", href: "/home", icon: House },               // home/projects
-  { name: "Projects", href: "/projects", icon: Folder },          // folder/project collection
-  { name: "Blogs", href: "/blogs", icon: FileText },              // file/blog post
-  { name: "Skills", href: "/skills", icon: Zap },                 // skills/abilities
-  { name: "About", href: "/about", icon: User },                  // user info / about me
-  { name: "Experience", href: "/experience", icon: FileText },    // experience entries
-  { name: "Contacts", href: "/contacts", icon: MessageCircle },   // contact/messages
-  { name: "Settings", href: "/settings", icon: Settings },        // settings
+  { name: "Dashboard", href: "/dashboard", icon: Home }, // main dashboard
+  { name: "Home", href: "/home", icon: House }, // home/projects
+  { name: "Projects", href: "/projects", icon: Folder }, // folder/project collection
+  { name: "Blogs", href: "/blogs", icon: FileText }, // file/blog post
+  { name: "Skills", href: "/skills", icon: Zap }, // skills/abilities
+  { name: "About", href: "/about", icon: User }, // user info / about me
+  { name: "Experience", href: "/experience", icon: FileText }, // experience entries
+  { name: "Contacts", href: "/contacts", icon: MessageCircle }, // contact/messages
+  { name: "Settings", href: "/settings", icon: Settings }, // settings
 ];
 
 export default function Sidebar() {
@@ -57,15 +57,15 @@ export default function Sidebar() {
       <div className="flex items-center justify-between mb-8">
         {!collapsed && (
           <div>
-            <h2 className="text-2xl font-bold bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <h2 className="text-2xl font-bold text-transparent bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text">
               Mr. Perfect
             </h2>
-            <p className="text-gray-400 text-sm mt-1">Portfolio</p>
+            <p className="mt-1 text-sm text-gray-400">Portfolio</p>
           </div>
         )}
         <button
           onClick={() => setCollapsed(!collapsed)}
-          className="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors hover:scale-105"
+          className="p-2 transition-colors bg-gray-800 rounded-lg hover:bg-gray-700 hover:scale-105"
           aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
           {collapsed ? (
@@ -132,13 +132,13 @@ export default function Sidebar() {
                     {item.name}
                   </span>
                   {isActive && (
-                    <div className="ml-auto w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
+                    <div className="w-2 h-2 ml-auto bg-blue-400 rounded-full animate-pulse" />
                   )}
                 </>
               )}
 
               {!collapsed && activeHover === item.name && (
-                <div className="absolute left-full ml-4 px-3 py-1 bg-gray-900 text-white text-sm rounded-lg border border-gray-700 shadow-lg">
+                <div className="absolute px-3 py-1 ml-4 text-sm text-white bg-gray-900 border border-gray-700 rounded-lg shadow-lg left-full">
                   {item.name}
                 </div>
               )}
@@ -156,12 +156,12 @@ export default function Sidebar() {
       >
         {!collapsed && (
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-full bg-linear-to-r from-blue-500 to-purple-500 flex items-center justify-center font-bold">
-              AM
+            <div className="flex items-center justify-center w-10 h-10 p-5 font-bold rounded-full bg-linear-to-r from-blue-500 to-purple-500">
+              P
             </div>
             <div>
-              <p className="font-medium">Admin User</p>
-              <p className="text-gray-400 text-sm">admin@example.com</p>
+              <p className="font-medium">Mr. Perfect</p>
+              <p className="text-sm text-gray-400">szamansaju@gmail.com</p>
             </div>
           </div>
         )}
@@ -182,7 +182,7 @@ export default function Sidebar() {
 
         {!collapsed && (
           <div className="mt-4 text-center">
-            <p className="text-gray-500 text-xs">v2.5.1 • Last login: Today</p>
+            <p className="text-xs text-gray-500">v2.5.1 • Last login: Today</p>
           </div>
         )}
       </div>

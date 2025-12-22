@@ -75,29 +75,29 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 h-16 bg-white/90 backdrop-blur-md border-b border-gray-100 flex items-center justify-between px-6 lg:px-8 shadow-sm">
+    <header className="sticky top-0 z-50 flex items-center justify-between h-16 px-6 border-b border-gray-100 shadow-sm bg-white/90 backdrop-blur-md lg:px-8">
       {/* Left - Title & Search */}
       <div className="flex items-center gap-6">
         <div className="relative">
-          <h1 className="text-lg font-semibold bg-linear-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+          <h1 className="text-lg font-semibold text-transparent bg-linear-to-r from-gray-900 to-gray-700 bg-clip-text">
             Dashboard
           </h1>
           <div className="absolute -bottom-1 left-0 w-12 h-0.5 bg-linear-to-r from-blue-500 to-purple-500 rounded-full" />
         </div>
 
         {/* Search Bar */}
-        <div className="hidden md:flex items-center">
+        <div className="items-center hidden md:flex">
           <div className="relative group">
             <Search
-              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 group-hover:text-gray-600 transition-colors"
+              className="absolute text-gray-400 transition-colors transform -translate-y-1/2 left-3 top-1/2 group-hover:text-gray-600"
               size={18}
             />
             <input
               type="text"
               placeholder="Search..."
-              className="pl-10 pr-4 py-2 text-black w-64 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 transition-all hover:border-gray-300"
+              className="w-64 py-2 pl-10 pr-4 text-black transition-all border border-gray-200 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 hover:border-gray-300"
             />
-            <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+            <div className="absolute transform -translate-y-1/2 right-3 top-1/2">
               <kbd className="px-1.5 py-0.5 text-xs border border-gray-300 rounded bg-white text-gray-500">
                 ⌘K
               </kbd>
@@ -111,17 +111,17 @@ export default function Navbar() {
         {/* Search Icon (Mobile) */}
         <button
           onClick={() => setSearchOpen(!searchOpen)}
-          className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+          className="p-2 transition-colors rounded-lg md:hidden hover:bg-gray-100"
         >
           <Search size={20} className="text-gray-600" />
         </button>
 
         {/* Mobile Search Overlay */}
         {searchOpen && (
-          <div className="absolute top-16 left-0 right-0 bg-white border-b p-4 md:hidden shadow-lg">
+          <div className="absolute left-0 right-0 p-4 bg-white border-b shadow-lg top-16 md:hidden">
             <div className="relative">
               <Search
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                className="absolute text-gray-400 transform -translate-y-1/2 left-3 top-1/2"
                 size={20}
               />
               <input
@@ -129,7 +129,7 @@ export default function Navbar() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search..."
-                className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full py-3 pl-10 pr-4 border border-gray-200 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 autoFocus
               />
             </div>
@@ -137,20 +137,20 @@ export default function Navbar() {
         )}
 
         {/* Help */}
-        <button className="p-2 rounded-lg hover:bg-gray-100 transition-colors relative group">
+        <button className="relative p-2 transition-colors rounded-lg hover:bg-gray-100 group">
           <HelpCircle size={20} className="text-gray-600" />
           <div className="absolute top-10 right-0 mb-2 px-3 py-1.5 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">
             Help & Support
-            <div className="absolute bottom-0 right-2 -mt-1 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gray-900"></div>
+            <div className="absolute bottom-0 w-0 h-0 -mt-1 border-t-4 border-l-4 border-r-4 right-2 border-l-transparent border-r-transparent border-t-gray-900"></div>
           </div>
         </button>
 
         {/* Settings */}
-        <button className="p-2 rounded-lg hover:bg-gray-100 transition-colors relative group">
+        <button className="relative p-2 transition-colors rounded-lg hover:bg-gray-100 group">
           <Settings size={20} className="text-gray-600" />
           <div className="absolute top-10 right-0 mb-2 px-3 py-1.5 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">
             Settings
-            <div className="absolute bottom-0 right-2 -mt-1 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gray-900"></div>
+            <div className="absolute bottom-0 w-0 h-0 -mt-1 border-t-4 border-l-4 border-r-4 right-2 border-l-transparent border-r-transparent border-t-gray-900"></div>
           </div>
         </button>
 
@@ -161,7 +161,7 @@ export default function Navbar() {
               setNotificationsOpen(!notificationsOpen);
               if (hasUnread && notificationsOpen) markAllAsRead();
             }}
-            className="p-2 rounded-lg hover:bg-gray-100 transition-colors relative group"
+            className="relative p-2 transition-colors rounded-lg hover:bg-gray-100 group"
           >
             <Bell size={20} className="text-gray-600" />
             {hasUnread && (
@@ -172,15 +172,15 @@ export default function Navbar() {
             )}
             <div className="absolute top-10 right-0 mb-2 px-3 py-1.5 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">
               Notifications
-              <div className="absolute bottom-0 right-2 -mt-1 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gray-900"></div>
+              <div className="absolute bottom-0 w-0 h-0 -mt-1 border-t-4 border-l-4 border-r-4 right-2 border-l-transparent border-r-transparent border-t-gray-900"></div>
             </div>
           </button>
 
           {/* Notifications Dropdown */}
           {notificationsOpen && (
-            <div className="absolute right-0 mt-2 w-80 bg-white border border-gray-200 rounded-xl shadow-xl overflow-hidden z-50 animate-in fade-in slide-in-from-top-5 duration-200">
+            <div className="absolute right-0 z-50 mt-2 overflow-hidden duration-200 bg-white border border-gray-200 shadow-xl w-80 rounded-xl animate-in fade-in slide-in-from-top-5">
               <div className="p-4 border-b border-gray-100">
-                <div className="flex justify-between items-center">
+                <div className="flex items-center justify-between">
                   <div>
                     <h3 className="font-semibold text-gray-800">
                       Notifications
@@ -199,7 +199,7 @@ export default function Navbar() {
                   )}
                 </div>
               </div>
-              <div className="max-h-96 overflow-y-auto">
+              <div className="overflow-y-auto max-h-96">
                 {notifications.map((notification) => (
                   <div
                     key={notification.id}
@@ -217,7 +217,7 @@ export default function Navbar() {
                         <p className="text-sm text-gray-800 truncate">
                           {notification.text}
                         </p>
-                        <p className="text-xs text-gray-500 mt-1">
+                        <p className="mt-1 text-xs text-gray-500">
                           {notification.time}
                         </p>
                       </div>
@@ -230,8 +230,8 @@ export default function Navbar() {
                   </div>
                 ))}
               </div>
-              <div className="p-3 bg-gray-50 text-center">
-                <button className="text-sm text-blue-600 hover:text-blue-800 font-medium transition-colors">
+              <div className="p-3 text-center bg-gray-50">
+                <button className="text-sm font-medium text-blue-600 transition-colors hover:text-blue-800">
                   View all notifications
                 </button>
               </div>
@@ -246,13 +246,13 @@ export default function Navbar() {
             className="flex items-center gap-3 p-1.5 rounded-xl hover:bg-gray-100 transition-colors group border border-transparent hover:border-gray-200"
           >
             <div className="relative">
-              <div className="w-9 h-9 bg-linear-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-sm">
+              <div className="flex items-center justify-center rounded-full shadow-sm w-9 h-9 bg-linear-to-br from-blue-500 to-purple-500">
                 <User size={18} className="text-white" />
               </div>
               <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
             </div>
-            <div className="hidden md:block text-left">
-              <p className="text-sm font-medium text-gray-800">Admin User</p>
+            <div className="hidden text-left md:block">
+              <p className="text-sm font-medium text-gray-800">Mr. Perfect</p>
               <p className="text-xs text-gray-500">Administrator</p>
             </div>
             <ChevronDown
@@ -264,47 +264,47 @@ export default function Navbar() {
           </button>
 
           {open && (
-            <div className="absolute right-0 mt-2 w-56 bg-white border border-gray-200 rounded-xl shadow-xl overflow-hidden z-50 animate-in fade-in slide-in-from-top-5 duration-200">
+            <div className="absolute right-0 z-50 mt-2 overflow-hidden duration-200 bg-white border border-gray-200 shadow-xl w-60 rounded-xl animate-in fade-in slide-in-from-top-5">
               <div className="p-4 border-b border-gray-100">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 bg-linear-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-sm">
+                  <div className="flex items-center justify-center px-3 rounded-full shadow-sm w-11 h-11 bg-linear-to-br from-blue-500 to-purple-500">
                     <User size={20} className="text-white" />
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">Admin User</p>
-                    <p className="text-sm text-gray-500">admin@example.com</p>
+                    <p className="text-sm text-gray-500">szamansaju@gmail.com</p>
                   </div>
                 </div>
               </div>
 
               <div className="py-2">
-                <button className="flex w-full items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors">
+                <button className="flex items-center w-full gap-3 px-4 py-3 text-gray-700 transition-colors hover:bg-gray-50">
                   <User size={18} className="text-gray-500" />
                   <span className="font-medium">Profile Settings</span>
                 </button>
 
-                <button className="flex w-full items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors">
+                <button className="flex items-center w-full gap-3 px-4 py-3 text-gray-700 transition-colors hover:bg-gray-50">
                   <Settings size={18} className="text-gray-500" />
                   <span className="font-medium">Account Settings</span>
                 </button>
 
-                <button className="flex w-full items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors">
+                <button className="flex items-center w-full gap-3 px-4 py-3 text-gray-700 transition-colors hover:bg-gray-50">
                   <HelpCircle size={18} className="text-gray-500" />
                   <span className="font-medium">Help Center</span>
                 </button>
               </div>
 
-              <div className="border-t border-gray-100 py-2">
+              <div className="py-2 border-t border-gray-100">
                 <button
                   onClick={handleLogout}
-                  className="flex w-full items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-50 transition-colors"
+                  className="flex items-center w-full gap-3 px-4 py-3 text-red-600 transition-colors cursor-pointer hover:bg-red-50"
                 >
                   <LogOut size={18} />
                   <span className="font-medium">Logout</span>
                 </button>
               </div>
 
-              <div className="p-4 bg-gray-50 text-center">
+              <div className="p-4 text-center bg-gray-50">
                 <p className="text-xs text-gray-500">
                   v2.5.1 • Last active: Now
                 </p>

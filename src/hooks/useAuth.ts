@@ -9,7 +9,7 @@ export const useAuth = () => {
   const login = async (email: string, password: string) => {
     // Your actual API call here
     // For now, we'll just set the cookie based on hardcoded credentials
-    if (email === "mrperfect@gmail.com" && password === "perfect96") {
+    if (email === "szamansaju@gmail.com" && password === "perfect96") {
       // Generate a simple auth token (demo purposes)
       const authToken = Math.random().toString(36).substring(2) + Date.now().toString(36);
       

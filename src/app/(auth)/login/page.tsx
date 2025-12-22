@@ -18,7 +18,7 @@ import { useRouter } from "next/navigation";
 export default function LoginPage() {
   const router = useRouter();
 
-  const DEFAULT_EMAIL = "mrperfect@gmail.com";
+  const DEFAULT_EMAIL = "szamansaju@gmail.com";
   const DEFAULT_PASSWORD = "perfect96";
 
   const [email, setEmail] = useState(DEFAULT_EMAIL);
@@ -70,24 +70,24 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-gray-50 via-white to-blue-50 p-4">
+    <div className="flex items-center justify-center min-h-screen p-4 bg-linear-to-br from-gray-50 via-white to-blue-50">
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/4 w-80 h-80 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute bg-purple-300 rounded-full -top-40 -right-40 w-80 h-80 mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute bg-blue-300 rounded-full -bottom-40 -left-40 w-80 h-80 mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute bg-pink-300 rounded-full top-1/2 left-1/4 w-80 h-80 mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
       </div>
 
       <div className="relative w-full max-w-md">
         {/* Decorative Elements */}
-        <div className="absolute -top-6 -right-6 w-12 h-12 bg-linear-to-br from-blue-500 to-purple-500 rounded-xl rotate-12"></div>
-        <div className="absolute -bottom-6 -left-6 w-10 h-10 bg-linear-to-br from-orange-400 to-pink-500 rounded-full"></div>
+        <div className="absolute w-12 h-12 -top-6 -right-6 bg-linear-to-br from-blue-500 to-purple-500 rounded-xl rotate-12"></div>
+        <div className="absolute w-10 h-10 rounded-full -bottom-6 -left-6 bg-linear-to-br from-orange-400 to-pink-500"></div>
 
-        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
+        <div className="overflow-hidden border border-gray-100 shadow-2xl bg-white/90 backdrop-blur-sm rounded-2xl">
           {/* Header */}
-          <div className="pt-8 px-8 text-center">
+          <div className="px-8 pt-8 text-center">
             <div className="flex justify-center mb-4">
               <div className="relative">
-                <div className="w-16 h-16 bg-linear-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <div className="flex items-center justify-center w-16 h-16 shadow-lg bg-linear-to-br from-blue-500 to-purple-600 rounded-2xl">
                   <Shield className="text-white" size={32} />
                 </div>
                 <div className="absolute -top-2 -right-2">
@@ -95,33 +95,33 @@ export default function LoginPage() {
                 </div>
               </div>
             </div>
-            <h1 className="text-3xl font-bold bg-linear-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+            <h1 className="text-3xl font-bold text-transparent bg-linear-to-r from-gray-900 to-gray-700 bg-clip-text">
               Admin Portal
             </h1>
-            <p className="text-gray-600 mt-2">
+            <p className="mt-2 text-gray-600">
               Sign in to manage your portfolio
             </p>
           </div>
 
           {/* Success Message */}
           {success && (
-            <div className="mx-8 mt-6 p-4 bg-green-50 border border-green-200 rounded-xl flex items-start gap-3 animate-in fade-in">
+            <div className="flex items-start gap-3 p-4 mx-8 mt-6 border border-green-200 bg-green-50 rounded-xl animate-in fade-in">
               <CheckCircle
                 className="text-green-500 flex-shrink-0 mt-0.5"
                 size={20}
               />
-              <span className="text-green-700 text-sm">{success}</span>
+              <span className="text-sm text-green-700">{success}</span>
             </div>
           )}
 
           {/* Error Message */}
           {error && (
-            <div className="mx-8 mt-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3 animate-in fade-in">
+            <div className="flex items-start gap-3 p-4 mx-8 mt-6 border border-red-200 bg-red-50 rounded-xl animate-in fade-in">
               <AlertCircle
                 className="text-red-500 flex-shrink-0 mt-0.5"
                 size={20}
               />
-              <span className="text-red-700 text-sm">{error}</span>
+              <span className="text-sm text-red-700">{error}</span>
             </div>
           )}
 
@@ -129,25 +129,25 @@ export default function LoginPage() {
           <form onSubmit={handleSubmit} className="p-8 space-y-6">
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block mb-2 text-sm font-medium text-gray-700">
                   Email Address
                 </label>
                 <div className="relative">
-                  <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
+                  <div className="absolute transform -translate-y-1/2 left-3 top-1/2">
                     <Mail className="text-gray-400" size={20} />
                   </div>
                   <Input
                     type="email"
-                    placeholder="admin@example.com"
+                    placeholder="szamansaju@gmail.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     onKeyDown={handleKeyPress}
-                    className="pl-11 pr-4 text-gray-800 py-3 w-full bg-gray-50 border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                    className="w-full py-3 pr-4 text-gray-800 transition-all border-gray-200 pl-11 bg-gray-50 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
                     required
                     disabled={isLoading || isDemoLoading}
                   />
                   {email === DEFAULT_EMAIL && (
-                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                    <div className="absolute transform -translate-y-1/2 right-3 top-1/2">
                       <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                     </div>
                   )}
@@ -155,11 +155,11 @@ export default function LoginPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block mb-2 text-sm font-medium text-gray-700">
                   Password
                 </label>
                 <div className="relative">
-                  <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
+                  <div className="absolute transform -translate-y-1/2 left-3 top-1/2">
                     <Lock className="text-gray-400" size={20} />
                   </div>
                   <Input
@@ -168,14 +168,14 @@ export default function LoginPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     onKeyDown={handleKeyPress}
-                    className="pl-11 pr-11 py-3 w-full bg-gray-50 text-gray-800 border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                    className="w-full py-3 text-gray-800 transition-all border-gray-200 pl-11 pr-11 bg-gray-50 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
                     required
                     disabled={isLoading || isDemoLoading}
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-10 top-1/2 transform -translate-y-1/2 p-1 hover:bg-gray-100 rounded transition-colors"
+                    className="absolute p-1 transition-colors transform -translate-y-1/2 rounded right-10 top-1/2 hover:bg-gray-100"
                     disabled={isLoading || isDemoLoading}
                   >
                     {showPassword ? (
@@ -185,14 +185,14 @@ export default function LoginPage() {
                     )}
                   </button>
                   {password === DEFAULT_PASSWORD && (
-                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                    <div className="absolute transform -translate-y-1/2 right-3 top-1/2">
                       <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                     </div>
                   )}
                 </div>
               </div>
 
-              <div className="flex items-center justify-between">
+              {/* <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <input
                     type="checkbox"
@@ -209,11 +209,11 @@ export default function LoginPage() {
                 </div>
                 <a
                   href="#"
-                  className="text-sm text-blue-600 hover:text-blue-800 font-medium transition-colors"
+                  className="text-sm font-medium text-blue-600 transition-colors hover:text-blue-800"
                 >
                   Forgot password?
                 </a>
-              </div>
+              </div> */}
             </div>
 
             <div className="space-y-3">
@@ -224,7 +224,7 @@ export default function LoginPage() {
               >
                 {isLoading ? (
                   <span className="flex items-center justify-center gap-2">
-                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    <div className="w-5 h-5 border-2 rounded-full border-white/30 border-t-white animate-spin"></div>
                     Signing in...
                   </span>
                 ) : (
@@ -238,7 +238,7 @@ export default function LoginPage() {
                 <div className="w-full border-t border-gray-200"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-4 bg-white text-gray-500">
+                <span className="px-4 text-gray-500 bg-white">
                   Secure access
                 </span>
               </div>
@@ -252,7 +252,7 @@ export default function LoginPage() {
           </form>
 
           {/* Footer */}
-          <div className="px-8 py-6 bg-linear-to-r from-gray-50 to-gray-100/50 border-t border-gray-200">
+          <div className="px-8 py-6 border-t border-gray-200 bg-linear-to-r from-gray-50 to-gray-100/50">
             <div className="flex items-center justify-center gap-4 text-sm text-gray-600">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
@@ -270,7 +270,7 @@ export default function LoginPage() {
             Need help?{" "}
             <a
               href="#"
-              className="text-blue-600 hover:text-blue-800 font-medium transition-colors"
+              className="font-medium text-blue-600 transition-colors hover:text-blue-800"
             >
               Contact support
             </a>
