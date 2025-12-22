@@ -1,10 +1,9 @@
+import AboutPageForm from '@/components/AboutPageForm/AboutPageForm';
 import React from 'react';
 
 const page = () => {
     return (
-        <div>
-            About
-        </div>
+        <AboutPageForm />
     );
 };
 
